@@ -1,53 +1,24 @@
 import logo from './logo.svg';
 import './App.css';
 
-function Header(props) {
+function SecretComponent() {
   return (
-    <header>
-      <h1>{props.name}'s Kitchen </h1>
-    </header>
+    <h1>Secret info for authorized users only.</h1>
   )
 }
 
-function Body(props) {
+function RegularComponent() {
   return (
-    <section>
-      <p>We serve the most {props.adjective} food around.</p>
-      <img src="https://github.com/MikeB1234.png" height={200} alt="github pic" />
-      <ul style={{ textAlign: "left" }}>
-        {props.dishes.map((dish) => (
-          <li key={dish.id}>{dish.title}</li>
-        ))}
-      </ul>
-    </section>
+    <h1>Everyone can see this component.</h1>
   )
 }
 
-function Footer(props) {
+function App(props) {
   return (
-    <footer>
-      <p>Copyright {props.year}</p>
-    </footer>
+    <>
+      {props.authorized ? <SecretComponent /> : <RegularComponent />}
+    </>
   )
-}
-
-const dishes = [
-  "Mac n Cheese",
-  "Salmon",
-  "Tofu",
-  "Minestrone"
-];
-
-const dishObjects = dishes.map((dish, i) => ({ id: i, title: dish }))
-
-function App() {
-  return (
-    <div className="App">
-      <Header name="Mike" />
-      <Body adjective="amazing" dishes={dishObjects} />
-      <Footer year={new Date().getFullYear()} />
-    </div>
-  );
 }
 
 export default App;
