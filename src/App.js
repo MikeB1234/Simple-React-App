@@ -13,6 +13,7 @@ function Body(props) {
   return (
     <section>
       <p>We serve the most {props.adjective} food around.</p>
+      <img src="https://github.com/MikeB1234.png" height={200} alt="github pic" />
       <ul style={{ textAlign: "left" }}>
         {props.dishes.map((dish) => (
           <li key={dish.id}>{dish.title}</li>
