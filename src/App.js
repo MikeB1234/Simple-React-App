@@ -1,29 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import './App.css';
 
-//https://api.github.com/users/MikeB1234
-
-function App({ login }) {
-
-  const [data, setData] = useState(null);
-
-  useEffect(() => {
-    fetch(`https://api.github.com/users/${login}`)
-      .then((response) => response.json())
-      .then(setData);
-  }, []);
-
-  if (data) {
-    return (
-      <div>
-        <h1>{data.name}</h1>
-        <p>{data.html_url}</p>
-        <img alt={data.login} src={data.avatar_url} />
-      </div>
-    );
-  }
-
-  return <div>No user data.</div>;
+function App() {
+  return (
+    <div>
+      <h1>Hello React Testing Library</h1>
+    </div>
+  )
 }
+
 
 export default App;
